@@ -8,10 +8,11 @@
 #include<QFileInfo>
 #include<QUrl>
 #include<QTimer>
+#include<QMessageBox>
 
 class MainWindow;
 
-class QFileDownload:public QObject
+class QFileDownload:public QWidget
 {
     Q_OBJECT
 
@@ -26,12 +27,18 @@ private:
     QUrl url;
     QFile * file;
     QTimer *timer;
+    QTimer *timer_15s;
     MainWindow * _window;
+    qint64 totalSize,oldSize,newSize,leftBytes;
+    qint64 last_15s_Ssiz;//超时30s则出现网络异常，则暂停下载。
+    qint64 speed,time_left;
+
 private slots:
     void httpFinished();
     void httpReadyRead();
     void updateDataReadProgress(qint64,qint64);
-
+    void updateSpeedTime();
+    void timeOut();
 };
 
 

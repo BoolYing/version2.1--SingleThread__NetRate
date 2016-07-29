@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include<QMessageBox>
 
 #include<qfiledownload.h>
 class QFileDownload;
@@ -16,6 +17,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void upDateProgressBar(qint64,qint64);
+    void upDateSpeedLabel(QString);
+    void upDateTimeLabel(QString);
     void HideProgressBar();
     void ShowProgressBar();
 

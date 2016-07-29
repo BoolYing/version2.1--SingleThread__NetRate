@@ -27,6 +27,9 @@ void MainWindow::upDateProgressBar(qint64 bytesRead,qint64 totalBytes)
 {
     ui->progressBar->setMaximum(totalBytes);
     ui->progressBar->setValue(bytesRead);
+
+
+
 }
 void MainWindow::ShowProgressBar()
 {
@@ -36,6 +39,21 @@ void MainWindow::HideProgressBar()
 {
     ui->progressBar->hide();
 }
+void MainWindow::upDateSpeedLabel(QString speed){
+    ui->label->setText(speed);
+}
+
+void MainWindow::upDateTimeLabel(QString _time_left){
+    ui->label_2->setText(_time_left);
+}
+
+
+
+
+
+
+
+
 
 
 
